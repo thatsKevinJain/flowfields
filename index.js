@@ -118,17 +118,14 @@ setCanvasSize("main", w, h);
 background(ctx, 0, 0, 0, 1, w, h);
 
 const draw = () => {
-  // background(ctx, 0, 0, 0, 0.05, w, h);
+  background(ctx, 0, 0, 0, 0.05, w, h);
 
   for (let i = 0; i < pn; i++) {
     const p = particles[i].position;
     const [fx, fy] = vWindowToField(p);
     const fv = field[fx][fy];
     particles[i].position = vAdd(p, fv);
-
-    // stroke(ctx, 0, 255-particles[i].color, 255, 1);
-    // fill(ctx, 255, 255, 255, 1);
-
+    
     noStroke(ctx);
     fill(ctx, 0, 255-particles[i].color, 255, 0.3);
     ellipse(ctx, particles[i].position, 1);
